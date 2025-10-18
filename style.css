@@ -1,0 +1,34 @@
+body {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+}
+#game-area {
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 8px;
+  max-width: 320px;
+  width: 90vw;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+button {
+  font-size: 1.2em;
+  padding: 12px 36px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  border: none;
+  background: #0099ff;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+  touch-action: manipulation;
+}
+button:active, button:hover {
+  background: #007acc;
+}
+#result-area p {
+  font-size: 1.1em;
+  margin: 10px 0;
+}
