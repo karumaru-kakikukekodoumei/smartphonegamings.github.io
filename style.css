@@ -6,28 +6,62 @@ body {
 }
 #game-area {
   margin: 40px auto;
-  padding: 30px;
+  padding: 30px 10px;
   background: #fff;
   border-radius: 8px;
-  max-width: 320px;
-  width: 90vw;
+  max-width: 350px;
+  width: 95vw;
   box-shadow: 0 2px 12px rgba(0,0,0,0.12);
 }
-button {
+.big-hand {
+  font-size: 6em;
+  display: inline-block;
+  margin: 20px 0;
+  user-select: none;
+}
+#user-buttons {
+  margin: 20px 0;
+}
+.hand-btn {
+  font-size: 2.2em;
+  padding: 10px 18px;
+  margin: 0 8px;
+  border-radius: 8px;
+  border: 2px solid #0099ff;
+  background: #fff;
+  color: #0099ff;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.hand-btn:active, .hand-btn:hover {
+  background: #0099ff;
+  color: #fff;
+}
+#start-btn, #reset-btn {
   font-size: 1.2em;
   padding: 12px 36px;
-  margin-bottom: 30px;
   border-radius: 6px;
   border: none;
   background: #0099ff;
   color: #fff;
   cursor: pointer;
   transition: background 0.2s;
-  touch-action: manipulation;
+  margin: 10px 8px;
 }
-button:active, button:hover {
+#start-btn:active, #start-btn:hover, #reset-btn:active, #reset-btn:hover {
   background: #007acc;
 }
-#result-area p {
-  font-size: 1.1em;
-  margin: 10px 0;
+#result-area {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 20px 0 10px 0;
+  min-height: 2em;
+}
+.hide {
+  display: none;
+}
+#message-area {
+  font-size: 1.3em;
+  margin-bottom: 12px;
+  min-height: 1.3em;
+}
