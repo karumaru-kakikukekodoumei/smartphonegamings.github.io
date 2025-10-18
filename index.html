@@ -1,20 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Auto Rock-Paper-Scissors Game</title>
+  <title>自動ジャンケンゲーム</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Auto Rock-Paper-Scissors Game</h1>
+  <h1>ジャンケンゲーム</h1>
   <div id="game-area">
-    <button id="play-btn">Play!</button>
-    <div id="result-area">
-      <p id="user-hand"></p>
-      <p id="cpu-hand"></p>
-      <p id="judge"></p>
+    <div id="message-area">最初はグー</div>
+    <div id="hand-area">
+      <span id="main-hand" class="big-hand">✊</span>
     </div>
+    <div id="user-buttons" class="hide">
+      <button class="hand-btn" data-hand="✊">✊</button>
+      <button class="hand-btn" data-hand="✌️">✌️</button>
+      <button class="hand-btn" data-hand="✋">✋</button>
+    </div>
+    <div id="result-area"></div>
+    <button id="start-btn">じゃんけん！</button>
+    <button id="reset-btn" class="hide">もう一度</button>
   </div>
   <script src="script.js"></script>
 </body>
