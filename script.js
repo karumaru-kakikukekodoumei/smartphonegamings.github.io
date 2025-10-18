@@ -1,32 +1,51 @@
-const hands = ['Rock', 'Scissors', 'Paper'];
-const playBtn = document.getElementById('play-btn');
-const userHandElem = document.getElementById('user-hand');
-const cpuHandElem = document.getElementById('cpu-hand');
-const judgeElem = document.getElementById('judge');
+const hands = ['✊', '✌️', '✋'];
+const handNames = {'✊': 'グー', '✌️': 'チョキ', '✋': 'パー'};
+const startBtn = document.getElementById('start-btn');
+const resetBtn = document.getElementById('reset-btn');
+const userButtons = document.getElementById('user-buttons');
+const handBtns = document.querySelectorAll('.hand-btn');
+const mainHand = document.getElementById('main-hand');
+const resultArea = document.getElementById('result-area');
+const msgArea = document.getElementById('message-area');
 
-function playJanken() {
-  const userHand = hands[Math.floor(Math.random() * 3)];
-  const cpuHand = hands[Math.floor(Math.random() * 3)];
-  userHandElem.textContent = `Your hand: ${userHand}`;
-  cpuHandElem.textContent = `CPU's hand: ${cpuHand}`;
-  judgeElem.textContent = `Result: ${judge(userHand, cpuHand)}`;
-}
+startBtn.addEventListener('click', () => {
+  startBtn.classList.add('hide');
+  msgArea.textContent = 'じゃんけん…';
+  mainHand.textContent = '✊';
+  setTimeout(() => {
+    msgArea.textContent = 'ぽん！';
+    userButtons.classList.remove('hide');
+  }, 900);
+});
 
-// For tap/touch and click
-playBtn.addEventListener('click', playJanken);
-playBtn.addEventListener('touchend', function(e) {
-  e.preventDefault(); // Prevent double event on mobile
-  playJanken();
+handBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    userButtons.classList.add('hide');
+    const userHand = btn.dataset.hand;
+    const cpuHand = hands[Math.floor(Math.random() * 3)];
+    mainHand.textContent = cpuHand;
+    msgArea.textContent = `あなた：${handNames[userHand]}　コンピュータ：${handNames[cpuHand]}`;
+    resultArea.textContent = judge(userHand, cpuHand);
+    resetBtn.classList.remove('hide');
+  });
+});
+
+resetBtn.addEventListener('click', () => {
+  msgArea.textContent = '最初はグー';
+  mainHand.textContent = '✊';
+  resultArea.textContent = '';
+  resetBtn.classList.add('hide');
+  startBtn.classList.remove('hide');
 });
 
 function judge(user, cpu) {
-  if (user === cpu) return "Draw!";
+  if (user === cpu) return 'あいこ！';
   if (
-    (user === 'Rock' && cpu === 'Scissors') ||
-    (user === 'Scissors' && cpu === 'Paper') ||
-    (user === 'Paper' && cpu === 'Rock')
+    (user === '✊' && cpu === '✌️') ||
+    (user === '✌️' && cpu === '✋') ||
+    (user === '✋' && cpu === '✊')
   ) {
-    return "You win!";
+    return 'あなたの勝ち！';
   }
-  return "You lose...";
+  return 'あなたの負け…';
 }
